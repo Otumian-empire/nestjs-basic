@@ -1,21 +1,8 @@
-import { Controller, Get, Module } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
-
-@Controller()
-class SomeEntityController {
-  @Get()
-  someFunctionToHandleSomeRoute() {
-    return "I handle some";
-  }
-}
-
-@Module({
-  controllers: [SomeEntityController],
-})
-class SomeModule {}
+import AppModule from "./app.module";
 
 async function bootstrap() {
-  const app = await NestFactory.create(SomeModule);
+  const app = await NestFactory.create(AppModule);
 
   await app.listen(3000);
 }
